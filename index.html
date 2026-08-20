@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AM Beauty Studio</title>
+  <script>
+    document.getElementById('anio').textContent = new Date().getFullYear();
+</script>
+
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@500;600&display=swap');
+    :root{
+      --bg:#f9f7f5;
+      --panel:#ffffff;
+      --gold-1:#D4AF37;
+      --gold-2:#C9A961;
+      --muted:#6b6b6b;
+      --card:#faf8f6;
+      --radius:14px;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      background: radial-gradient(1200px 600px at 90% 10%, rgba(212,175,55,0.06), transparent),
+                 linear-gradient(180deg,#ffffff,#f9f7f5 80%);
+      color:var(--muted);
+      padding:0
+    }
+    .container{
+      width:min(95vw,1100px);
+      margin:0 auto;
+      padding:32px 20px;
+      padding-top:20px
+    }
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:linear-gradient(180deg,#ede9e1,#e8e3d9);
+      padding:12px 20px;
+      margin:0;
+      width:100%;
+      box-shadow:0 4px 12px rgba(212,175,55,0.08);
+      border-bottom:1px solid rgba(212,175,55,0.12)
+    }
+    .brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+    .logo{
+      width:56px;height:56px;
+      object-fit:contain;
+      background:transparent;
+      flex-shrink:0
+    }
+    .brand > div:nth-child(2){
+      display:flex;
+      flex-direction:column;
+      min-width:0
+    }
+    .brand > div:nth-child(2) > div:nth-child(1){
+      font-weight:900;
+      color:#1a1a1a;
+      font-size:1rem;
+      white-space:nowrap
+    }
+    .brand > div:nth-child(2) > div:nth-child(2){
+      font-size:0.75rem;
+      color:var(--gold-2);
+      white-space:nowrap
+    }
+    nav{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      justify-content:flex-end
+    }
+    nav a{
+      color:#333;
+      text-decoration:none;
+      font-weight:700;
+      font-size:0.95rem;
+      white-space:nowrap
+    }
+    .hero{
+      background:linear-gradient(135deg,rgba(0,0,0,0.5),rgba(0,0,0,0.4)),url('img/salon1.jpg') center/cover;
+      border:1px solid rgba(212,175,55,0.18);
+      padding:60px 40px;
+      border-radius:18px;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:24px;
+      align-items:center;
+      justify-items:start;
+      box-shadow:0 10px 30px rgba(212,175,55,0.08);
+      margin-top:18px;
+      min-height:500px
+    }
+    .hero > div{
+      color:#fff;
+      z-index:1
+    }
+    .hero h1{
+      color:#fff;
+      text-shadow:0 2px 8px rgba(0,0,0,0.3)
+    }
+    .hero p.lead{
+      color:rgba(255,255,255,0.95);
+      text-shadow:0 1px 4px rgba(0,0,0,0.3)
+    }
+    .hero .eyebrow{
+      color:#ffd700
+    }
+    h1{margin:0;color:#1a1a1a;font-size:clamp(1.6rem,3.8vw,2.8rem);line-height:1}
+    p.lead{margin:12px 0;color:var(--muted);font-size:1.02rem; text-align:justify; line-height:1.7}
+    .eyebrow{
+      margin:0;color:var(--gold-1);letter-spacing:0.14em;text-transform:uppercase;font-weight:800;font-size:0.75rem
+    }
+    .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:40px;justify-content:center}
+    .btn{
+      background:linear-gradient(90deg,var(--gold-1),var(--gold-2));color:#fff;padding:12px 18px;border-radius:999px;border:none;font-weight:800;cursor:pointer;box-shadow:0 8px 20px rgba(212,175,55,0.2)
+    }
+    .btn.secondary{background:transparent;border:2px solid var(--gold-1);color:var(--gold-1);font-weight:800}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1.5px solid rgba(210, 158, 1, 0.989)}
+    .card-image{
+      width:100%;
+      height:150px;
+      object-fit:cover;
+      border-radius:10px;
+      display:block;
+      margin-bottom:12px
+    }
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+    .service{padding:12px;border-radius:10px;text-align:center;background:linear-gradient(180deg, rgba(212,175,55,0.02), transparent)}
+    .service img{width:64px;height:64px;border-radius:10px;object-fit:cover;display:block;margin:0 auto}
+    .price-grid{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+    .price{flex:1;min-width:180px;padding:16px;border-radius:12px;background:linear-gradient(180deg,#faf8f6,#f9f7f5);border:1px solid rgba(212,175,55,0.15)}
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
+    .gallery img{width:100%;height:160px;object-fit:cover;border-radius:10px}
+    .elegant-line{
+      text-align:center;
+      margin-top:16px;
+      color:var(--gold-1);
+      font-size:1rem;
+      font-weight:500;
+      font-style:italic;
+      letter-spacing:0.04em;
+      font-family: 'Cormorant Infant', Georgia, serif;
+      text-shadow:0 1px 2px rgba(212,175,55,0.15)
+    }
+    footer{margin-top:22px;color:var(--muted);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;padding-top:10px}
+    @media (max-width:768px){
+      .container{padding:16px 16px;padding-top:12px}
+      header{
+        padding:10px 16px;
+        gap:8px
+      }
+      .logo{width:48px;height:48px}
+      .brand > div:nth-child(2) > div:nth-child(1){font-size:0.9rem}
+      .brand > div:nth-child(2) > div:nth-child(2){font-size:0.65rem}
+      nav{gap:6px}
+      nav a{font-size:0.85rem}
+      section{margin-top:20px !important}
+      h2{font-size:1.4rem !important}
+      h3{font-size:1rem !important}
+      .hero{padding:40px 30px;gap:16px;min-height:400px}
+      .card{padding:14px}
+      .ctas button{padding:10px 16px;font-size:0.95rem}
+    }
+    @media (max-width:560px){
+      .container{padding:12px 12px;padding-top:8px}
+      header{
+        padding:8px 12px;
+        flex-wrap:wrap;
+        gap:4px;
+        justify-content:center
+      }
+      .brand{
+        width:100%;
+        gap:6px;
+        margin:0;
+        justify-content:center;
+        order:1
+      }
+      .logo{width:40px;height:40px}
+      .brand > div:nth-child(2) > div:nth-child(1){font-size:0.8rem}
+      .brand > div:nth-child(2) > div:nth-child(2){font-size:0.6rem}
+      nav{
+        width:100%;
+        justify-content:center;
+        gap:4px;
+        order:2;
+        margin-top:2px
+      }
+      nav a{
+        font-size:0.75rem;
+        padding:4px 8px;
+        background:rgba(212,175,55,0.08);
+        border-radius:6px
+      }
+      h1{font-size:1.3rem !important}
+      h2{font-size:1.1rem !important}
+      p.lead{font-size:0.9rem;margin:8px 0}
+      .eyebrow{font-size:0.6rem}
+      .hero{padding:24px;gap:10px;grid-template-columns:1fr !important;margin-top:16px;min-height:450px}
+      .hero aside{display:none}
+      .card{padding:10px}
+      .services{grid-template-columns:1fr !important}
+      .gallery{grid-template-columns:1fr !important}
+      .price-grid{display:flex;flex-direction:column}
+      .price{min-width:100%}
+      div[style*="grid-template-columns:repeat(2,1fr)"] {
+        grid-template-columns: 1fr !important
+      }
+      .ctas{flex-direction:column}
+      .ctas button{width:100%;padding:10px 14px;font-size:0.9rem}
+      .btn{font-size:0.85rem}
+      ul{margin:4px 0 !important;font-size:0.8rem !important}
+      footer{flex-direction:column;gap:12px;text-align:center}
+    }
+    .equipo-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .equipo-card {
+        background: #fff;
+        border: 1px solid rgba(212,175,55,0.15);
+        border-radius: 16px;
+        padding: 24px;
+        text-align: center;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .equipo-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(212,175,55,0.1);
+    }
+    .equipo-imagen {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 16px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 4px solid var(--gold-1);
+        box-shadow: 0 6px 15px rgba(212,175,55,0.2);
+    }
+    .equipo-imagen img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+    @media (max-width: 768px) {
+        .equipo-grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+        .equipo-imagen {
+            width: 120px;
+            height: 120px;
+            border-width: 3px;
+        }
+        .equipo-card h3 {
+            font-size: 1.1rem;
+        }
+    }
+    @media (max-width: 480px) {
+        .equipo-card {
+            padding: 16px;
+        }
+        .equipo-imagen {
+            width: 100px;
+            height: 100px;
+        }
+    }
+  .footer-elegante {
+        margin-top: 40px;
+        padding: 30px 20px;
+        background: linear-gradient(135deg, rgba(212,175,55,0.08), rgba(201,169,97,0.03));
+        border-top: 3px solid transparent;
+        border-image: linear-gradient(90deg, #D4AF37, #C9A961, #D4AF37) 1;
+        text-align: center;
+        color: #6b6b6b;
+    }
+    .footer-contenido {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .footer-marca {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+    .footer-logo {
+        width: 150px;
+        height: 150px;
+        object-fit: contain;
+        margin-bottom: 2px;
+    }
+    .footer-marca h3 {
+        margin: 0;
+        color: #1a1a1a;
+        font-size: 1.3rem;
+        font-weight: 800;
+    }
+    .footer-tagline {
+        font-style: italic;
+        color: #C9A961;
+        margin: 0;
+    }
+    .footer-redes {
+        display: flex;
+        gap: 12px;
+        margin-top: 10px;
+    }
+    .footer-redes a {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #fff;
+        border: 1px solid rgba(212,175,55,0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        text-decoration: none;
+        transition: transform 0.2s, background 0.2s;
+    }
+    .footer-redes a:hover {
+        transform: translateY(-3px);
+        background: rgba(212,175,55,0.1);
+    }
+    @media (max-width: 480px) {
+        .footer-logo {
+            width: 60px;
+            height: 60px;
+        }
+        .footer-marca h3 {
+            font-size: 1.1rem;
+        }
+    }
+
+     .luxury-card {
+        background: linear-gradient(135deg, rgba(212,175,55,0.12), rgba(201,169,97,0.06));
+        border: 2px solid var(--gold-1);
+        border-radius: 20px;
+        padding: 32px 24px;
+        margin: 32px 0;
+        box-shadow: 0 12px 30px rgba(212,175,55,0.12);
+    }
+    .luxury-title {
+        margin: 0;
+        color: var(--gold-1);
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        font-family: 'Cormorant Infant', Georgia, serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        position: relative;
+        display: inline-block;
+        padding-bottom: 12px;
+    }
+    .luxury-title-line {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 70px;
+        height: 2px;
+        background: linear-gradient(90deg, var(--gold-1), var(--gold-2));
+        border-radius: 2px;
+    }
+    .luxury-subtitle {
+        color: var(--muted);
+        font-size: 0.95rem;
+        margin-top: 14px;
+        font-style: italic;
+        text-align: center;
+    }
+    .luxury-price {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 900;
+        color: var(--gold-2);
+        margin: 16px 0;
+        letter-spacing: 0.05em;
+    }
+    .luxury-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin: 20px 0;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .luxury-item {
+        padding: 14px 12px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        border: 1px solid rgba(212,175,55,0.2);
+        color: #1a1a1a;
+        font-weight: 700;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .luxury-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(212,175,55,0.1);
+    }
+    .luxury-btn {
+        font-size: 1.05rem;
+        padding: 14px 28px;
+        background: linear-gradient(90deg, var(--gold-1), var(--gold-2));
+        color: #fff;
+        border-radius: 999px;
+        border: none;
+        font-weight: 800;
+        cursor: pointer;
+        box-shadow: 0 8px 20px rgba(212,175,55,0.3);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .luxury-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(212,175,55,0.4);
+    }
+    @media (max-width: 560px) {
+        .luxury-card {
+            padding: 20px 16px;
+        }
+        .luxury-grid {
+            grid-template-columns: 1fr;
+        }
+        .luxury-btn {
+            width: 100%;
+        }
+    }
+        .luxury-image {
+        max-width: 300px;
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(212,175,55,0.15);
+    }
+
+     /* Contenedor de tarjetas */
+    .info-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-bottom: 24px;
+    }
+    /* Tarjeta base */
+    .info-card {
+        background: #fff;
+        border: 1px solid rgba(212,175,55,0.2);
+        border-radius: 16px;
+        padding: 28px 20px;
+        text-align: center;
+        box-shadow: 0 8px 25px rgba(212,175,55,0.06);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+        position: relative;
+        overflow: hidden;
+    }
+    /* Efecto hover */
+    .info-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 14px 30px rgba(212,175,55,0.12);
+        border-color: var(--gold-1);
+    }
+    /* Icono circular dorado */
+    .info-icon {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 16px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(201,169,97,0.1));
+        border: 2px solid var(--gold-1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        box-shadow: 0 6px 15px rgba(212,175,55,0.2);
+    }
+    /* Título de tarjeta */
+    .info-title {
+        margin: 0 0 20px 0;
+        color: #1a1a1a;
+        font-size: 1.2rem;
+        font-weight: 800;
+        position: relative;
+        padding-bottom: 10px;
+    }
+    .info-title::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 50px;
+        height: 2px;
+        background: linear-gradient(90deg, var(--gold-1), var(--gold-2));
+        border-radius: 2px;
+    }
+    /* Enlaces de contacto */
+    .info-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+    .info-link {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        border-radius: 10px;
+        background: rgba(212,175,55,0.04);
+        border: 1px solid rgba(212,175,55,0.15);
+        color: var(--gold-1);
+        text-decoration: none;
+        font-weight: 700;
+        transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .info-link:hover {
+        background: rgba(212,175,55,0.1);
+        border-color: var(--gold-1);
+        transform: translateX(3px);
+    }
+    .info-link-icon {
+        font-size: 1.2rem;
+    }
+    /* Texto de ubicación */
+    .info-text {
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.7;
+        background: rgba(212,175,55,0.03);
+        padding: 16px;
+        border-radius: 10px;
+        border: 1px dashed rgba(212,175,55,0.2);
+    }
+    /* Tarjeta de horario */
+    .info-card-horario {
+        margin-bottom: 32px;
+    }
+    .info-schedule {
+        color: var(--muted);
+        font-size: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+    }
+    .schedule-time {
+        font-size: 1.4rem;
+        color: var(--gold-1);
+        font-weight: 700;
+        letter-spacing: 0.05em;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+        .info-cards {
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+        .info-card {
+            padding: 22px 16px;
+        }
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+        }
+        .schedule-time {
+            font-size: 1.2rem;
+        }
+    }
+    @media (max-width: 480px) {
+        .info-link {
+            padding: 8px 12px;
+            font-size: 0.9rem;
+        }
+        .info-title {
+            font-size: 1.1rem;
+        }
+    }
+
+    .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #fff6ee 0%, #fdeae2 45%, #fad8c6 100%);
+    border-bottom: 1px solid rgba(230, 160, 140, 0.18);
+    box-shadow: 0 6px 18px rgba(200, 140, 120, 0.1);
+    backdrop-filter: blur(6px);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.logo {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    border: 2px solid rgba(240, 180, 150, 0.5);
+    padding: 4px;
+    transition: transform 0.3s ease;
+}
+
+.brand:hover .logo {
+    transform: scale(1.05);
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.brand-name {
+    font-weight: 800;
+    color: #6b4a3c;
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.brand-tagline {
+    font-size: 0.72rem;
+    color: #776f01;
+    white-space: nowrap;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.nav {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.nav-link {
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(230, 160, 140, 0.2);
+    color: #7a5c4f;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.25s ease;
+}
+
+.nav-link:hover {
+    background: #fce4d6;
+    color: #b5654a;
+    border-color: rgba(230, 140, 110, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(200, 140, 120, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .site-header {
+        padding: 12px 16px;
+    }
+    .logo {
+        width: 48px;
+        height: 48px;
+    }
+
+    .nav-link {
+        padding: 6px 12px;
+        font-size: 0.82rem;
+    }
+}
+
+@media (max-width: 560px) {
+    .site-header {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 12px;
+    }
+    .brand {
+        width: 100%;
+        justify-content: center;
+        gap: 8px;
+    }
+    .logo {
+        width: 42px;
+        height: 42px;
+    }
+    .nav {
+        width: 100%;
+        justify-content: center;
+        gap: 6px;
+        margin-top: 4px;
+    }
+    .nav-link {
+        padding: 6px 10px;
+        font-size: 0.78rem;
+    }
+}
+
+.service-card {
+    background: linear-gradient(135deg, #fff6ee 0%, #fdeae2 50%, #fad8c6 100%);
+    border: 1px solid rgba(230, 160, 140, 0.25);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(200, 140, 120, 0.08);
+}
+
+.btn-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fff6ee, #fdeae2);
+    border: 2px solid #e6a08c;
+    color: #b5654a;
+    font-size: 1.4rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(200, 140, 120, 0.25);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s, background 0.2s;
+    z-index: 999;
+}
+
+.btn-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.btn-top:hover {
+    background: linear-gradient(135deg, #fdeae2, #fad8c6);
+    border-color: #d48a70;
+    box-shadow: 0 10px 25px rgba(200, 140, 120, 0.35);
+    transform: translateY(-3px);
+}
+
+.btn-top:active {
+    transform: scale(0.95);
+}
+
+/* Ajuste en móviles */
+@media (max-width: 560px) {
+    .btn-top {
+        width: 44px;
+        height: 44px;
+        bottom: 16px;
+        right: 16px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+    <!-- Botón flotante volver arriba -->
+<button id="btn-top" class="btn-top" aria-label="Volver arriba" title="Volver arriba">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+</button>
+
+<!-- Script al final del body -->
+  <script>
+    const btnTop = document.getElementById('btn-top');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        btnTop.classList.add('visible');
+      } else {
+        btnTop.classList.remove('visible');
+      }
+    });
+
+    btnTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+  <div class="container">
+
+<header class="site-header">
+    <div class="brand">
+        <img src="img/AM-logo.png" alt="AM Beauty Studio" class="logo">
+        <div class="brand-text">
+            <div class="brand-name">AM Beauty Studio</div>
+            <div class="brand-tagline">Belleza • Estética • Estilo</div>
+        </div>
+    </div>
+    <nav class="nav">
+        <a href="#servicios" class="nav-link">Servicios</a>
+        <a href="#equipo" class="nav-link">Equipo</a>
+        <a href="#reserva" class="nav-link">Reserva</a>
+    </nav>
+</header>
+
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Bienvenida</p>
+        <h1>SOMOS AM BEAUTY STUDIO</h1>
+        <p class="lead">
+          Un espacio creado para ti, donde la elegancia y el bienestar se encuentran, mientras cada detalle está pensado para consentirte.
+          Déjate envolver por un agradable aroma, música relajante y una atmósfera tranquila que te invita al disfrute y la relajación total.
+        </p>
+            <div class="ctas">
+          <button class="btn" onclick="document.getElementById('reserva').scrollIntoView({behavior:'smooth'})">Reservar cita</button>
+          <button class="btn secondary" onclick="document.getElementById('reserva').scrollIntoView({behavior:'smooth'})">Contacto</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios" style="margin-top:28px">
+<div style="text-align:center; margin-bottom:32px;">
+    <p style="margin:0 0 8px; color:var(--gold-1); letter-spacing:0.2em; text-transform:uppercase; font-weight:800; font-size:0.75rem;">Belleza & Estilo</p>
+    <h2 style="margin:0; color:#1a1a1a; font-size:clamp(1.6rem,4vw,2.2rem); font-family:'Cormorant Infant', Georgia, serif; letter-spacing:0.08em; text-transform:uppercase; position:relative; display:inline-block; padding-bottom:12px;">
+        Nuestros Servicios
+        <span style="position:absolute; left:50%; bottom:0; transform:translateX(-50%); width:70px; height:2px; background:linear-gradient(90deg,var(--gold-1),var(--gold-2)); border-radius:2px;"></span>
+    </h2>
+       <div class="elegant-line" style="margin-top:32px;">
+        "Consiéntete con tratamientos diseñados para resaltar tu belleza"
+    </div>
+</div>
+      
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:28px">
+        <!-- Manicura -->
+        <div class="card">
+          <img class="card-image" src="img/mani.jpg" alt="Manicura">
+          <h3 style="margin:0 0 12px 0;color:var(--gold-1);border-bottom:2px solid var(--gold-1);padding-bottom:8px">💅 Manicura</h3>
+          <div style="font-weight:700;color:#1a1a1a;margin-top:8px">Manicura Estándar – $15 USD</div>
+          <ul style="margin:6px 0;color:var(--muted);font-size:0.92rem;padding-left:18px">
+            <li>Reforzamiento con Builder Gel</li>
+            <li>Técnica Combinada</li>
+            <li>Softgel</li>
+          </ul>
+          <div style="font-weight:700;color:#1a1a1a;margin-top:12px">Dual System – $15 USD</div>
+          <br>
+           <a style="text-decoration: underline; font: bold; font-size: 12px;">Todos los servicios de manicura incluyen:</a>
+          <ul style="margin:6px 0;color:var(--muted);font-size:0.92rem;padding-left:18px">
+            <li>Manicura macro para acabado impecable</li>
+            <li>Esmaltado profundo</li>
+            <li>Decoración hasta 2 uñas</li>
+            <li>Hidratación con masaje</li>
+            <li>Masajeadores opcionales</li>
+          </ul>
+          <div style="color:var(--gold-2);font-size:0.9rem;margin-top:8px">🍵 Café incluido</div>
+        </div>
+
+        <!-- Manicura Spa -->
+        <div class="card">
+          <img class="card-image" src="img/manispa.JPG" alt="Manicura spa">
+          <h3 style="margin:0 0 12px 0;color:var(--gold-1);border-bottom:2px solid var(--gold-1);padding-bottom:8px">🌸 Manicura SPA Premium – $13 USD</h3>
+          <ul style="margin:8px 0;color:var(--muted);font-size:0.92rem;padding-left:18px">
+            <li>Baño con sales minerales y perlas regeneradoras</li>
+            <li>Exfoliación profunda</li>
+            <li>Mascarilla con vaporizador de ozono</li>
+            <li>Velo-terapia relajante</li>
+            <li>Parafina para hidratación intensiva</li>
+            <li>Pistola de masaje</li>
+            <li>Masaje relajante con crema</li>
+          </ul>
+          <div style="color:var(--gold-2);font-size:0.9rem;margin-top:8px">🍷 Bebida premium incluida</div>
+          <br>
+          <div style="font-size:0.85rem;color:var(--muted);margin-top:8px">
+            <strong>💎Servicios Adicionales Manicura:</strong><br>
+            <ul style="margin:8px 0;color:var(--muted);font-size:0.92rem;padding-left:18px">
+            <li>Decoración: ..... $1 USD</li>
+            <li>Jelly: ................... $3 USD</li>
+            <li>Parafina: ............ $4 USD</li>
+
+          </ul>
+
+          </div>
+        </div>
+
+        <!-- Pedicura -->
+        <div class="card">
+          <img class="card-image" src="img/pedi.jpg" alt="Pedicura">
+          <h3 style="margin:0 0 12px 0;color:var(--gold-1);border-bottom:2px solid var(--gold-1);padding-bottom:8px">🦶 Pedicura – $15 USD</h3>
+          <ul style="margin:6px 0;color:var(--muted);font-size:0.92rem;padding-left:18px">
+            <li>Limpieza profunda de cutículas</li>
+            <li>Molde perfecto de uñas</li>
+            <li>Eliminación de callos y durezas</li>
+            <li>7 minutos en tina de hidromasaje</li>
+            <li>Hidratación con masaje</li>
+            <li>Masajeador de cuello (opcional)</li>
+          </ul>
+          <div style="color:var(--gold-2);font-size:0.9rem;margin-top:8px">🍵 Café incluido</div>
+        <div style="font-size:0.85rem;color:var(--muted);margin-top:8px">
+        <br>
+            <strong>💎Servicios Adicionales Pedicura:</strong><br>
+            <ul style="margin:8px 0;color:var(--muted);font-size:0.92rem;padding-left:18px">
+            <li>Jelly, tratamiento nutritivo .................... $4 USD</li>
+            <li>Parafina para hidratación intensiva ..... $5 USD</li>
+            <li>Pedicura para Caballeros ..................... $15 USD</li>
+          </ul>
+          </div>
+        </div>
+
+        <!-- Pedicura Spa -->
+        <div class="card">
+          <img class="card-image" src="img/pedispa.jpg" alt="Pedicura spa">
+          <h3 style="margin:0 0 12px 0;color:var(--gold-1);border-bottom:2px solid var(--gold-1);padding-bottom:8px">🌺 Pedicura SPA – $15 USD</h3>
+          <ul style="margin:6px 0;color:var(--muted);font-size:0.92rem;padding-left:18px">
+            <li>Baño de hidromasaje con sales y perlas</li>
+            <li>Exfoliación profunda</li>
+            <li>Mascarilla con vaporizador de ozono</li>
+            <li>Termoterapia con toallas calientes</li>
+            <li>Velo-terapia nutritiva</li>
+            <li>Parafina ultra profunda</li>
+            <li>Pistola de masaje para fascia plantar</li>
+            <li>Masajeador ocular 4D</li>
+          </ul>
+          <div style="color:var(--gold-2);font-size:0.9rem;margin-top:8px">🍷 Bebida premium incluida</div>
+
+<div style="font-size:0.85rem;color:var(--muted);margin-top:8px">
+    <br>
+            <strong>💎Servicios Adicionales Pedicura Spa:</strong><br>
+            <ul style="margin:8px 0;color:var(--muted);font-size:0.92rem;padding-left:18px">
+            <li>Jelly, tratamiento nutritivo .................... $4 USD</li>
+
+          </ul>
+          </div>
+
+        </div>
+
+        <!-- Pestañas -->
+        <div class="card">
+          <img class="card-image" src="img/pestana.jpg" alt="Extensiones de pestañas">
+          <h3 style="margin:0 0 12px 0;color:var(--gold-1);border-bottom:2px solid var(--gold-1);padding-bottom:8px">✨ Extensiones de Pestañas</h3>
+          
+          <ul style="margin:6px 0;color:var(--muted);font-size:0.92rem;padding-left:18px">
+            <li><strong>YY</strong>.............. $13 USD</li>
+            <li><strong>3D</strong> ............. $15 USD</li>
+            <li><strong>4D</strong> ............. $17 USD</li>
+            <li><strong>5D</strong> ............. $20 USD</li>
+            <li><strong>6D</strong> ............. $20 USD</li>
+          </ul>
+
+          <div style="color:var(--gold-2);font-size:0.9rem;margin-top:12px">🍵 Café incluido</div>
+
+          <div style="font-size:0.85rem;color:var(--muted);margin-top:8px">
+        <br>
+            <strong>💎Servicios Adicionales</strong><br>
+            <ul style="margin:8px 0;color:var(--muted);font-size:0.92rem;padding-left:18px">
+            <li>Retiro de extensiones de pestañas ........... $4 USD</li>
+          </ul>
+          </div>
+
+        </div>
+
+        <!-- Cejas -->
+        <div class="card">
+          <img class="card-image" src="img/cejas.jpg" alt="Diseño de cejas">
+          <h3 style="margin:0 0 12px 0;color:var(--gold-1);border-bottom:2px solid var(--gold-1);padding-bottom:8px">🎨 Diseño de Cejas</h3>
+          
+          <ul style="margin:6px 0;color:var(--muted);font-size:0.92rem;padding-left:18px">
+            <li><strong>Laminado + Diseño + Depilación</strong>......... $10 USD</li>
+            <li><strong>Henna + Diseño + Depilación</strong> ............... $10 USD</li>
+            <li><strong>Depilación de ceja</strong> ....................................... $15 USD</li>
+          </ul>
+
+          
+          <div style="font-weight:700;color:#1a1a1a;margin-top:12px">💎 Laminado Premium – $16 USD</div>
+          <ul style="margin:6px 0;color:var(--muted);font-size:0.92rem;padding-left:18px">
+            <li>Laminado + Depilación + Tinte</li>
+            <li>Masaje relajante</li>
+            <li>Limpieza y exfoliación</li>
+            <li>Productos de alta calidad</li>
+          </ul>
+          <div style="color:var(--gold-2);font-size:0.9rem;margin-top:8px">🍵 Café incluido</div>
+        </div>
+      </div>
+
+      <!-- Paquete Luxury -->
+<div class="luxury-card">
+    <div style="text-align:center; margin-bottom:20px;">
+        <h2 class="luxury-title">
+            Paquete Luxury Full Service
+            <span class="luxury-title-line"></span>
+        </h2>
+        <p class="luxury-subtitle">Una experiencia completa para consentir tus manos y pies</p>
+    </div>
+
+    <div class="luxury-price">$45 USD</div>
+
+    <div class="luxury-grid">
+        <div class="luxury-item">💅Manicura Estándar</div>
+        <div class="luxury-item">🌸Manicura SPA</div>
+        <div class="luxury-item">🦶Pedicura Estándar</div>
+        <div class="luxury-item">🌺Pedicura SPA</div>
+    </div>
+
+           <!-- Imagen decorativa -->
+    <div style="text-align:center; margin-bottom:20px;">
+        <img src="img/luxury.png" alt="Decoración Luxury" class="luxury-image">
+    </div>
+
+    
+    <p class="luxury-subtitle">En nuestro Studio, te invitamos a vivir una gran experiencia con nuestro Full Service, que une manos y pies en un solo ritual de lujo y calidez.</p>
+
+    <div style="text-align:center; margin-top:24px;">
+        <button class="btn luxury-btn" onclick="document.getElementById('reserva').scrollIntoView({behavior:'smooth'})">
+            Reservar Full Service
+        </button>
+    </div>
+</div>
+    </section>
+
+    <section id="reserva" style="margin-top:28px;">
+    <!-- Encabezado elegante -->
+    <div style="text-align:center; margin-bottom:32px;">
+        <h2 style="margin:0; color:#1a1a1a; font-size:2rem; font-family:'Cormorant Infant', Georgia, serif; letter-spacing:0.08em; text-transform:uppercase; position:relative; display:inline-block; padding-bottom:12px;">
+            Agenda tu cita hoy
+            <span style="position:absolute; left:50%; bottom:0; transform:translateX(-50%); width:80px; height:2px; background:linear-gradient(90deg, var(--gold-1), var(--gold-2)); border-radius:2px;"></span>
+        </h2>
+        <div class="elegant-line" style="margin-top:32px;">
+        "Déjanos consentirte, elige tu momento perfecto"
+        </div>
+      
+    </div>
+
+    <!-- Tarjetas de contacto y ubicación -->
+    <div class="info-cards">
+    <!-- Contacto -->
+    <div class="info-card">
+        <div class="info-icon">📞</div>
+        <h3 class="info-title">Contacto Directo</h3>
+        <div class="info-links">
+            <a href="tel:+534117337" class="info-link">
+                <span class="info-link-icon">📞</span>
+                <span>+53 4117337</span>
+            </a>
+            <a href="https://wa.me/534117337" target="_blank" rel="noopener" class="info-link">
+                <span class="info-link-icon">💬</span>
+                <span>WhatsApp</span>
+            </a>
+            <a href="https://instagram.com/AM_BEAUTY_STUDIO" target="_blank" rel="noopener" class="info-link">
+                <span class="info-link-icon">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+        <rect x="2" y="2" width="20" height="20" rx="5" fill="#E1306C"/>
+        <circle cx="12" cy="12" r="4" fill="white"/>
+        <circle cx="17.5" cy="6.5" r="1.2" fill="white"/>
+    </svg>
+</span>
+
+                <span>@AM_BEAUTY_STUDIO</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Ubicación -->
+    <div class="info-card">
+        <div class="info-icon">📍</div>
+        <h3 class="info-title">Ubicación</h3>
+        <div class="info-text">
+            Calle Coronel Verdugo, E/ Ave. 47 y 51, Edif. 15, Esc. 1307, Apto. 7, Brisas del Mar, Cárdenas, Matanzas
+        </div>
+    </div>
+</div>
+
+<!-- Horario -->
+<div class="info-card info-card-horario">
+    <div class="info-icon">🕒</div>
+    <h3 class="info-title">Horario de Atención</h3>
+    <div class="info-schedule">
+        <strong>De Lunes a Viernes</strong>
+        <span class="schedule-time">8:00 AM — 6:00 PM</span>
+    </div>
+</div>
+
+    <!-- Llamado a la acción -->
+    <div style="text-align:center;">
+        <a href="https://wa.me/+5354117337" target="_blank" rel="noopener" class="btn" style="display:inline-block; text-decoration:none; font-size:1.1rem; padding:14px 32px; background:linear-gradient(90deg, var(--gold-1), var(--gold-2)); color:#fff; border-radius:999px; font-weight:800; box-shadow:0 8px 20px rgba(212,175,55,0.3); transition:transform 0.2s, box-shadow 0.2s;">
+            💬 Envíanos un Mensaje
+        </a>
+        <p style="color:var(--muted); font-style:italic; margin-top:20px; font-size:1rem;">
+            ¡Será un placer atenderte!
+        </p>
+    </div>
+    </section>
+
+    <section id="equipo" style="margin-top:28px;">
+    <!-- Encabezado de la sección -->
+    <div style="text-align:center; margin-bottom:32px;">
+        <h2 style="margin:0; color:#1a1a1a; font-size:2rem; font-family:'Cormorant Infant', Georgia, serif; letter-spacing:0.08em; text-transform:uppercase; position:relative; display:inline-block; padding-bottom:12px;">
+            El Talento Detrás de AM Beauty Studio
+            <span style="position:absolute; left:50%; bottom:0; transform:translateX(-50%); width:80px; height:2px; background:linear-gradient(90deg, var(--gold-1), var(--gold-2)); border-radius:2px;"></span>
+        </h2>
+        <p style="color:var(--muted); font-size:0.95rem; margin-top:16px; font-style:italic;">Conoce a nuestros especialistas que cuidan cada detalle</p>
+    </div>
+
+    <!-- Tarjetas del equipo -->
+    <div class="equipo-grid">
+        <!-- Miembro 1 -->
+        <div class="card service-card">
+            <div class="equipo-imagen">
+                <img src="img/melissa.png" alt="Melissa Araujo">
+            </div>
+            <h3 style="margin:0 0 6px 0; color:#1a1a1a; font-size:1.3rem;">Melissa Araujo</h3>
+            <div style="color:var(--gold-1); font-weight:700; margin-bottom:8px;">Manicure & Pedicure Specialist</div>
+            <div style="color:var(--muted); font-size:0.9rem; line-height:1.6;">Experta en técnicas de spa y tratamientos de lujo para manos y pies</div>
+        </div>
+
+        <!-- Miembro 2 -->
+        <div class="card service-card">
+            <div class="equipo-imagen">
+                <img src="img/dave.png" alt="Dave Guillemi">
+            </div>
+            <h3 style="margin:0 0 6px 0; color:#1a1a1a; font-size:1.3rem;">Dave Guillemi</h3>
+            <div style="color:var(--gold-1); font-weight:700; margin-bottom:8px;">Lashes & Brows Expert</div>
+            <div style="color:var(--muted); font-size:0.9rem; line-height:1.6;">Especialista en extensiones de pestañas y diseño de cejas personalizado</div>
+        </div>
+    </div>
+
+    <!-- Frase elegante -->
+    <div class="elegant-line" style="margin-top:32px;">
+        "Resalta tu belleza con un servicio profesional, personalizado y lleno de detalles"
+    </div>
+</section>
+
+    <footer class="footer-elegante">
+    <div class="footer-contenido">
+        <div class="footer-marca">
+            <img src="img/AM-logo.png" alt="AM Beauty Studio" class="footer-logo">
+            <p class="footer-tagline"><span id="anio"></span>@ todos los derechos reservados</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+  document.getElementById('anio').textContent = new Date().getFullYear();
+</script>
+
+  </div>
+</body>
+</html>
