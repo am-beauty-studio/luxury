@@ -777,6 +777,25 @@
     transform: scale(0.95);
 }
 
+.info-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: rgba(212,175,55,0.04);
+    border: 1px solid rgba(212,175,55,0.15);
+    color: var(--gold-1);
+    text-decoration: none;
+    font-weight: 700;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+.info-link:hover {
+    background: rgba(212,175,55,0.1);
+    border-color: var(--gold-1);
+    transform: translateY(-2px);
+}
+
 /* Ajuste en móviles */
 @media (max-width: 560px) {
     .btn-top {
@@ -1087,7 +1106,7 @@
     </svg>
 </span>
 
-                <span>@AM_LUXURY_BEAUTY_STUDIO</span>
+                <span>@AM_BEAUTY_STUDIO</span>
             </a>
         </div>
     </div>
@@ -1099,6 +1118,14 @@
         <div class="info-text">
             Calle Coronel Verdugo, E/ Ave. 47 y 51, Edif. 15, Esc. 1307, Apto. 7, Brisas del Mar, Cárdenas, Matanzas
         </div>
+   <!-- Enlace para abrir en Google Maps -->
+    <a href="https://maps.app.goo.gl/QruWXZY3o87jmERo7" 
+       target="_blank" 
+       rel="noopener" 
+       class="info-link" 
+       style="margin-top:12px; justify-content:center;">
+      Ver en Google Maps
+    </a>     
     </div>
 </div>
 
