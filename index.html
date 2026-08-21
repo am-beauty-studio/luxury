@@ -284,73 +284,128 @@
         }
     }
   .footer-elegante {
-        margin-top: 40px;
-        padding: 30px 20px;
-        background: linear-gradient(135deg, rgba(212,175,55,0.08), rgba(201,169,97,0.03));
-        border-top: 3px solid transparent;
-        border-image: linear-gradient(90deg, #D4AF37, #C9A961, #D4AF37) 1;
-        text-align: center;
-        color: #6b6b6b;
-    }
-    .footer-contenido {
-        max-width: 600px;
-        margin: 0 auto;
-    }
-    .footer-marca {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-    }
-    .footer-logo {
-        width: 150px;
-        height: 150px;
-        object-fit: contain;
-        margin-bottom: 2px;
-    }
-    .footer-marca h3 {
-        margin: 0;
-        color: #1a1a1a;
-        font-size: 1.3rem;
-        font-weight: 800;
-    }
-    .footer-tagline {
-        font-style: italic;
-        color: #C9A961;
-        margin: 0;
-    }
-    .footer-redes {
-        display: flex;
-        gap: 12px;
-        margin-top: 10px;
-    }
-    .footer-redes a {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: #fff;
-        border: 1px solid rgba(212,175,55,0.3);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.2rem;
-        text-decoration: none;
-        transition: transform 0.2s, background 0.2s;
-    }
-    .footer-redes a:hover {
-        transform: translateY(-3px);
-        background: rgba(212,175,55,0.1);
-    }
-    @media (max-width: 480px) {
-        .footer-logo {
-            width: 60px;
-            height: 60px;
-        }
-        .footer-marca h3 {
-            font-size: 1.1rem;
-        }
-    }
+    margin-top: 40px;
+    background: linear-gradient(135deg, rgba(212,175,55,0.08), rgba(201,169,97,0.03));
+    border-top: 3px solid transparent;
+    border-image: linear-gradient(90deg, #D4AF37, #C9A961, #D4AF37) 1;
+    padding: 40px 20px 20px;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+.footer-contenido {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;  /* Dos columnas iguales */
+    gap: 32px;
+    align-items: start;
+    text-align: center;
+}
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.footer-col h4 {
+    color: #1a1a1a;
+    font-size: 1.1rem;
+    margin: 0 0 8px 0;
+    font-weight: 800;
+    position: relative;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, #D4AF37, #C9A961);
+    border-radius: 2px;
+}
+.footer-logo {
+    width: 150px;
+     object-fit: contain;
+    margin-bottom: 4px;
+}
+.footer-tagline {
+    font-style: italic;
+    color: #C9A961;
+    margin: 0;
+    font-size: 0.9rem;
+}
+.footer-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #D4AF37, #C9A961);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 6px 15px rgba(212,175,55,0.25);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.footer-download:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(212,175,55,0.35);
+}
 
+.footer-legal a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.footer-legal a:hover {
+    color: #D4AF37;
+}
+.footer-bottom {
+    max-width: 1100px;
+    margin: 32px auto 0;
+    padding-top: 16px;
+    border-top: 1px solid rgba(212,175,55,0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.85rem;
+}
+.footer-bottom button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(212,175,55,0.4);
+    background: #fff;
+    color: #D4AF37;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+.footer-bottom button:hover {
+    background: rgba(212,175,55,0.1);
+    transform: translateY(-3px);
+}
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-contenido {
+        grid-template-columns: 1fr;  /* Una columna en móvil */
+        gap: 24px;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
      .luxury-card {
         background: linear-gradient(135deg, rgba(212,175,55,0.12), rgba(201,169,97,0.06));
         border: 2px solid var(--gold-1);
@@ -1211,12 +1266,35 @@
 </section>
 
     <footer class="footer-elegante">
+    <!-- Contenido principal: dos columnas -->
     <div class="footer-contenido">
-        <div class="footer-marca">
+        <!-- Columna 1: Marca y descarga -->
+        <div class="footer-col footer-marca">
             <img src="img/AM-logo.png" alt="AM Beauty Studio" class="footer-logo">
-            <p class="footer-tagline"><span id="anio"></span>@ todos los derechos reservados</p>
+                <p class="footer-tagline">Donde la elegancia y el bienestar se encuentran.</p>
+            <a href="doc\Catalogo AM_BEAUTY_STUDIO.pdf" download class="footer-download">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Descargar Catálogo PDF
+            </a>
+        </div>
+
+        <!-- Columna 2: Enlaces legales -->
+        <div class="footer-col footer-legal">
+            <h4>Información Legal</h4>
+            <a href="politica-de-privacidad.html">Política de Privacidad</a>
+            <a href="terminos-y-condiciones.html">Términos y Condiciones</a>
+            <a href="quejas-y-sugerencias.html">Quejas y Sugerencias</a>
         </div>
     </div>
+
+    <!-- Línea inferior -->
+    <div class="footer-bottom">
+        <p>© <span id="anio"></span> AM Luxury Beauty Studio. Todos los derechos reservados.</p>
+            </div>
 </footer>
 
 <script>
