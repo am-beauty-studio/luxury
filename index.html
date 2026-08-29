@@ -283,7 +283,7 @@
             height: 100px;
         }
     }
-  .footer-elegante {
+.footer-elegante {
     margin-top: 40px;
     background: linear-gradient(135deg, rgba(212,175,55,0.08), rgba(201,169,97,0.03));
     border-top: 3px solid transparent;
@@ -832,6 +832,16 @@
     transform: scale(0.95);
 }
 
+/* Ajuste en móviles */
+@media (max-width: 560px) {
+    .btn-top {
+        width: 44px;
+        height: 44px;
+        bottom: 16px;
+        right: 16px;
+    }
+}
+
 .info-link {
     display: flex;
     align-items: center;
@@ -849,16 +859,6 @@
     background: rgba(212,175,55,0.1);
     border-color: var(--gold-1);
     transform: translateY(-2px);
-}
-
-/* Ajuste en móviles */
-@media (max-width: 560px) {
-    .btn-top {
-        width: 44px;
-        height: 44px;
-        bottom: 16px;
-        right: 16px;
-    }
 }
 
 </style>
@@ -946,7 +946,7 @@
             <li>Técnica Combinada</li>
             <li>Softgel</li>
           </ul>
-          <div style="font-weight:700;color:#1a1a1a;margin-top:12px">Dual System – $17 USD</div>
+          <div style="font-weight:700;color:#1a1a1a;margin-top:12px">Dual System – $18 USD</div>
           <br>
            <a style="text-decoration: underline; font: bold; font-size: 12px;">Todos los servicios de manicura incluyen:</a>
           <ul style="margin:6px 0;color:var(--muted);font-size:0.92rem;padding-left:18px">
@@ -954,15 +954,28 @@
             <li>Esmaltado profundo</li>
             <li>Decoración hasta 2 uñas</li>
             <li>Hidratación con ligero masaje</li>
-            <li>Masajeadores de pie y manos opcionales</li>
+            <li>Masajeadores de pie y cuello opcionales</li>
           </ul>
           <div style="color:var(--gold-2);font-size:0.9rem;margin-top:8px">🍵 Café incluido</div>
+
+          <br>
+          <div style="font-size:0.85rem;color:var(--muted);margin-top:8px">
+            <strong>💎 Servicios Adicionales Manicura:</strong><br>
+            <ul style="margin:8px 0;color:var(--muted);font-size:0.92rem;padding-left:18px">
+            <li>Retiro total de sistema (No hecho en AM): .. $2 USD</li>
+            <li>Decoración adicional (más de 2 uñas) : ....... $1 USD</li>
+            <li>Jelly, tratamiento nutritivo: ........................... $4 USD</li>
+            <li>Parafina para hidratación intensiva: ............ $5 USD</li>
+            </ul>
+
+          </div>
+
         </div>
 
         <!-- Manicura Spa -->
         <div class="card">
           <img class="card-image" src="img/manispa.jpg" alt="Manicura spa">
-          <h3 style="margin:0 0 12px 0;color:var(--gold-1);border-bottom:2px solid var(--gold-1);padding-bottom:8px">🌸 Manicura SPA Premium – $13 USD</h3>
+          <h3 style="margin:0 0 12px 0;color:var(--gold-1);border-bottom:2px solid var(--gold-1);padding-bottom:8px">🌸 Manicura SPA Premium – $14 USD</h3>
           <ul style="margin:8px 0;color:var(--muted);font-size:0.92rem;padding-left:18px">
             <li>Baño de manos con sales y perlas regeneradoras</li>
             <li>Espuma limpiadora</li>
@@ -977,12 +990,9 @@
           <div style="color:var(--gold-2);font-size:0.9rem;margin-top:8px">🍷 Bebida premium incluida</div>
           <br>
           <div style="font-size:0.85rem;color:var(--muted);margin-top:8px">
-            <strong>💎 Servicios Adicionales Manicura:</strong><br>
+            <strong>💎 Servicios Adicionales Manicura SPA:</strong><br>
             <ul style="margin:8px 0;color:var(--muted);font-size:0.92rem;padding-left:18px">
-            <li>Retiro total de sistema (No hecho en AM): .. $2 USD</li>
-            <li>Decoración adicional (más de 2 uñas) : ....... $1 USD</li>
-            <li>Jelly, tratamiento nutritivo: ........................... $3 USD</li>
-            <li>Parafina para hidratación intensiva: ............ $3 USD</li>
+            <li>Jelly, tratamiento nutritivo: ........................... $4 USD</li>
             </ul>
 
           </div>
@@ -1003,11 +1013,10 @@
           <div style="color:var(--gold-2);font-size:0.9rem;margin-top:8px">🍵 Café incluido</div>
         <div style="font-size:0.85rem;color:var(--muted);margin-top:8px">
         <br>
-            <strong>💎 Servicios Adicionales Pedicura:</strong><br>
+            <strong>💎Servicios Adicionales Pedicura:</strong><br>
             <ul style="margin:8px 0;color:var(--muted);font-size:0.92rem;padding-left:18px">
-            <li>Jelly, tratamiento nutritivo .................... $4 USD</li>
-            <li>Parafina para hidratación intensiva ..... $5 USD</li>
-            <li>Pedicura para Caballeros ..................... $15 USD</li>
+            <li>Parafina para hidratación intensiva ..... $6 USD</li>
+            <li>Pedicura para Caballeros ..................... $10 USD</li>
           </ul>
           </div>
         </div>
@@ -1015,7 +1024,7 @@
         <!-- Pedicura Spa -->
         <div class="card">
           <img class="card-image" src="img/pedispa.jpg" alt="Pedicura spa">
-          <h3 style="margin:0 0 12px 0;color:var(--gold-1);border-bottom:2px solid var(--gold-1);padding-bottom:8px">🌺 Pedicura SPA – $15 USD</h3>
+          <h3 style="margin:0 0 12px 0;color:var(--gold-1);border-bottom:2px solid var(--gold-1);padding-bottom:8px">🌺 Pedicura SPA – $18 USD</h3>
           <ul style="margin:6px 0;color:var(--muted);font-size:0.92rem;padding-left:18px">
             <li>Baño de pie en tina de hidromasaje con sales y perlas</li>
             <li>Espuma limpiadora</li>
@@ -1029,15 +1038,6 @@
             <li>Masajeador ocular 4D</li>
           </ul>
           <div style="color:var(--gold-2);font-size:0.9rem;margin-top:8px">🍷 Bebida premium incluida</div>
-
-<div style="font-size:0.85rem;color:var(--muted);margin-top:8px">
-    <br>
-            <strong>💎 Servicios Adicionales Pedicura Spa:</strong><br>
-            <ul style="margin:8px 0;color:var(--muted);font-size:0.92rem;padding-left:18px">
-            <li>Jelly, tratamiento nutritivo .................... $4 USD</li>
-
-          </ul>
-          </div>
 
         </div>
 
@@ -1058,7 +1058,7 @@
 
           <div style="font-size:0.85rem;color:var(--muted);margin-top:8px">
         <br>
-            <strong>💎 Servicios Adicionales</strong><br>
+            <strong>💎Servicios Adicionales</strong><br>
             <ul style="margin:8px 0;color:var(--muted);font-size:0.92rem;padding-left:18px">
             <li>Retiro de extensiones de pestañas ........... $4 USD</li>
           </ul>
@@ -1074,7 +1074,7 @@
           <ul style="margin:6px 0;color:var(--muted);font-size:0.92rem;padding-left:18px">
             <li><strong>Laminado + Diseño + Depilación</strong>......... $10 USD</li>
             <li><strong>Henna + Diseño + Depilación</strong> ............ $10 USD</li>
-            <li><strong>Depilación de cejas</strong> ........................... $5 USD</li>
+            <li><strong>Depilación de cejas + Diseño</strong> .............. $5 USD</li>
           </ul>
 
           
@@ -1082,7 +1082,6 @@
           <ul style="margin:6px 0;color:var(--muted);font-size:0.92rem;padding-left:18px">
             <li>Laminado + Depilación + Tinte</li>
             <li>Masaje relajante</li>
-            <li>Limpieza y exfoliación</li>
             <li>Productos de alta calidad</li>
           </ul>
           <div style="color:var(--gold-2);font-size:0.9rem;margin-top:8px">🍵 Café incluido</div>
@@ -1093,30 +1092,30 @@
 <div class="luxury-card">
     <div style="text-align:center; margin-bottom:20px;">
         <h2 class="luxury-title">
-            Paquete Luxury Full Service
+           Paquete Luxury Full Service
             <span class="luxury-title-line"></span>
         </h2>
         <p class="luxury-subtitle">Una experiencia completa para consentir tus manos y pies</p>
     </div>
 
-    <div class="luxury-price">$45 USD</div>
+    <div class="luxury-price">$50 USD</div>
 
     <div class="luxury-grid">
-        <div class="luxury-item">💅 Manicura Estándar</div>
-        <div class="luxury-item">🌸 Manicura SPA</div>
-        <div class="luxury-item">🦶 Pedicura Estándar</div>
-        <div class="luxury-item">🌺 Pedicura SPA</div>
+        <div class="luxury-item">💅Manicura Estándar</div>
+        <div class="luxury-item">🌸Manicura SPA</div>
+        <div class="luxury-item">🦶Pedicura Estándar</div>
+        <div class="luxury-item">🌺Pedicura SPA</div>
     </div>
 
            <!-- Imagen decorativa -->
     <div style="text-align:center; margin-bottom:20px;">
         <img src="img/luxury.png" alt="Decoración Luxury" class="luxury-image">
     </div>
-  <div style="color:var(--gold-2);font-size:0.9rem;margin-top:8px; text-align: center;">🍷 Cafe y Bebida de cortesía incluidos</div>
-    
+    <div style="color:var(--gold-2);font-size:0.9rem;margin-top:8px; text-align: center;">🍷 Cafe y Bebida de cortesía incluidos</div>
+     
     <p class="luxury-subtitle">En nuestro Studio, te invitamos a vivir una gran experiencia con nuestro Full Service, que une manos y pies en un solo ritual de lujo y calidez.</p>
 
-  <div style="text-align:center; margin-top:24px;">
+<div style="text-align:center; margin-top:24px;">
     <a href="https://wa.me/5354117337" target="_blank" rel="noopener" 
        class="btn" 
        style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; font-size:1.1rem; padding:14px 32px; background:linear-gradient(90deg, var(--gold-1), var(--gold-2)); color:#fff; border-radius:999px; font-weight:800; box-shadow:0 8px 20px rgba(212,175,55,0.3); transition:transform 0.2s, box-shadow 0.2s;">
@@ -1127,6 +1126,7 @@
         Reservar Full Service
     </a>
 </div>
+
 
 </div>
     </section>
@@ -1155,8 +1155,9 @@
                 <span class="info-link-icon">📞</span>
                 <span>+5354117337</span>
             </a>
+            
 
-         <a href="https://wa.me/5354117337" target="_blank" rel="noopener" class="info-link">
+       <a href="https://wa.me/5354117337" target="_blank" rel="noopener" class="info-link">
             <span class="info-link-icon">
                 <!-- Logo verde de WhatsApp -->
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;">
@@ -1165,8 +1166,9 @@
                 </svg>
             </span>
             <span>WhatsApp</span>
-         </a>
-          
+        </a>
+
+
             <a href="https://www.instagram.com/amluxury_beautystudio?igsi=OGV6anptOGlkanB5" target="_blank" rel="noopener" class="info-link">
                 <span class="info-link-icon">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;">
@@ -1174,9 +1176,9 @@
         <circle cx="12" cy="12" r="4" fill="white"/>
         <circle cx="17.5" cy="6.5" r="1.2" fill="white"/>
     </svg>
-</span>
+              </span>
 
-                <span>@AM_BEAUTY_STUDIO</span>
+                <span>amluxury_beautystudio</span>
             </a>
         </div>
     </div>
@@ -1188,8 +1190,8 @@
         <div class="info-text">
             Calle Coronel Verdugo, E/ Ave. 47 y 51, Edif. 15, Esc. 1307, Apto. 7, Brisas del Mar, Cárdenas, Matanzas
         </div>
-      
-   <!-- Enlace para abrir en Google Maps -->
+
+         <!-- Enlace para abrir en Google Maps -->
     <a href="https://www.google.com/maps/dir/AM+Beauty+Studio,+3Q2J%2B9CX,+C%C3%A1rdenas/AM+Beauty+Studio,+3Q2J%2B9CX,+C%C3%A1rdenas/@23.0508668,-81.218882,21z/data=!4m13!4m12!1m5!1m1!1s0x88d30b00010ba307:0xb772888bac885973!2m2!1d-81.218905!2d23.050983!1m5!1m1!1s0x88d30b00010ba307:0xb772888bac885973!2m2!1d-81.218905!2d23.050983?entry=ttu&g_ep=EgoyMDI2MDgxOS4wIKXMDSoASAFQAw%3D%3D"   
        target="_blank" 
        rel="noopener" 
@@ -1201,7 +1203,6 @@
         </svg>
         Ver en Google Maps
     </a>
-      
     </div>
 </div>
 
@@ -1265,7 +1266,7 @@
     </div>
 </section>
 
-    <footer class="footer-elegante">
+   <footer class="footer-elegante">
     <!-- Contenido principal: dos columnas -->
     <div class="footer-contenido">
         <!-- Columna 1: Marca y descarga -->
@@ -1296,6 +1297,7 @@
         <p>© <span id="anio"></span> AM Luxury Beauty Studio. Todos los derechos reservados.</p>
             </div>
 </footer>
+
 
 <script>
   document.getElementById('anio').textContent = new Date().getFullYear();
