@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>amlux y Sugerencias | AM Luxury Beauty Studio</title>
+<meta name="description" content="Envía tu queja, sugerencia o felicitación a AM Luxury Beauty Studio.">
+<meta name="theme-color" content="#F4E7EB">
+<link rel="icon" href="img/AM-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=Jost:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/legal.css">
+</head>
+<body>
+<a class="skip" href="#contenido">Ir al contenido</a>
+
+<header class="lg-header">
+  <div class="lg-bar">
+    <a class="lg-brand" href="index.html" aria-label="AM Luxury Beauty Studio, inicio">
+      <img src="img/AM-logo.png" alt="" width="44" height="44">
+      <span>AM Luxury Beauty Studio</span>
+    </a>
+    <a class="lg-back" href="index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Volver al inicio</a>
+  </div>
+</header>
+
+<main id="contenido">
+  <div class="lg-wrap">
+    <article class="lg-card">
+      <p class="lg-eyebrow">Información legal</p>
+      <h1>amlux y Sugerencias</h1>
+      <p class="lg-date">Última actualización: noviembre de 2026</p>
+      <div class="lg-divider" aria-hidden="true"><i></i><b></b><i></i></div>
+      <p class="lg-intro">Tu opinión nos ayuda a mejorar cada detalle.</p>
+      <p>Cuéntanos qué podemos mejorar o qué te gustó. Leemos todos los mensajes y, si nos dejas un medio de contacto, te responderemos.</p>
+
+      <form id="qs-form" novalidate>
+        <fieldset>
+          <legend>¿Qué quieres enviarnos?</legend>
+          <div class="kinds" role="radiogroup">
+            <label><input type="radio" name="tipo" value="Queja"><span>Queja</span></label>
+            <label><input type="radio" name="tipo" value="Sugerencia" checked><span>Sugerencia</span></label>
+            <label><input type="radio" name="tipo" value="Felicitación"><span>Felicitación</span></label>
+          </div>
+        </fieldset>
+
+        <div>
+          <label class="lb" for="qs-servicio">Servicio relacionado <span class="opt">(opcional)</span></label>
+          <select id="qs-servicio" name="servicio">
+            <option value="">Selecciona una opción</option><option value="Manicura">Manicura</option><option value="Manicura SPA">Manicura SPA</option><option value="Pedicura">Pedicura</option><option value="Pedicura SPA">Pedicura SPA</option><option value="Extensiones de pestañas">Extensiones de pestañas</option><option value="Diseño de cejas">Diseño de cejas</option><option value="Paquete Luxury Full Service">Paquete Luxury Full Service</option><option value="Atención y reservas">Atención y reservas</option><option value="Instalaciones">Instalaciones</option><option value="Página web">Página web</option><option value="Otro">Otro</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="lb" for="qs-mensaje">Tu mensaje</label>
+          <textarea id="qs-mensaje" name="mensaje" maxlength="1000" required aria-describedby="qs-count qs-err"></textarea>
+          <div class="count" id="qs-count" aria-hidden="true">0 / 1000</div>
+        </div>
+
+        <div>
+          <label class="lb" for="qs-nombre">Tu nombre <span class="opt">(opcional)</span></label>
+          <input type="text" id="qs-nombre" name="nombre" maxlength="80" autocomplete="name">
+        </div>
+
+        <div>
+          <label class="lb" for="qs-contacto">Teléfono, WhatsApp o correo <span class="opt">(opcional)</span></label>
+          <input type="text" id="qs-contacto" name="contacto" maxlength="120" autocomplete="off" aria-describedby="qs-hint">
+          <p class="hint" id="qs-hint">Solo lo usaremos para responderte.</p>
+        </div>
+
+        <div class="hp" aria-hidden="true">
+          <label for="qs-web">No rellenar este campo</label>
+          <input type="text" id="qs-web" name="web" tabindex="-1" autocomplete="off">
+        </div>
+
+        <label class="check"><input type="checkbox" id="qs-ok" required><span>He leído la <a href="politica-de-privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a> y acepto que usen estos datos para responder a mi mensaje.</span></label>
+
+        <button class="btn" type="submit" id="qs-send">Enviar mensaje</button>
+        <p class="form-msg" id="qs-msg" role="status" aria-live="polite"></p>
+        <p class="form-msg err" id="qs-err" role="alert" hidden></p>
+      </form>
+
+      <div class="lg-note">
+        ¿Es algo urgente? Escríbenos directamente por <a href="https://wa.me/5354117337?text=Hola%2C%20tengo%20una%20consulta%20sobre%20AM%20Luxury%20Beauty%20Studio." target="_blank" rel="noopener">WhatsApp</a> y te atendemos de lunes a viernes, de 8:00 AM a 6:00 PM.
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer class="lg-footer">
+  <div class="lg-wrap">
+    <nav aria-label="Información legal">
+      <a href="politica-de-privacidad.html">Política de Privacidad</a>
+      <a href="terminos-y-condiciones.html">Términos y Condiciones</a>
+      <a href="amlux-y-sugerencias.html" aria-current="page">amlux y Sugerencias</a>
+    </nav>
+    <p>© <span id="anio"></span> AM Luxury Beauty Studio. Todos los derechos reservados.</p>
+  </div>
+</footer>
+<script>document.getElementById('anio').textContent = new Date().getFullYear();</script>
+<script>
+  (function(){
+    var ENDPOINT = 'https://script.google.com/macros/s/AKfycbyJNoPmmT6luqR0TkggzDmdA9nBhYqvC_Uc6GADgjfWz6ya2yi0OKH3iuM7j-bTble0/exec';   // mismo Google Apps Script de las evaluaciones
+    var form = document.getElementById('qs-form');
+    var msg = document.getElementById('qs-msg'), err = document.getElementById('qs-err'), send = document.getElementById('qs-send');
+    var area = document.getElementById('qs-mensaje'), count = document.getElementById('qs-count');
+    var KEY = 'am_qs_ultimo';
+    function setErr(t, el){ err.textContent = t; err.hidden = !t; if (t){ msg.textContent = ''; if (el) el.focus(); } }
+    area.addEventListener('input', function(){ count.textContent = area.value.length + ' / 1000'; });
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault(); setErr(''); msg.className = 'form-msg'; msg.textContent = '';
+      var d = {
+        tipo: (form.querySelector('input[name="tipo"]:checked') || {}).value || 'Sugerencia',
+        servicio: form.servicio.value, mensaje: area.value.trim(),
+        nombre: form.nombre.value.trim(), contacto: form.contacto.value.trim(), web: form.web.value
+      };
+      if (d.web) return;                               // campo trampa para robots
+      if (d.mensaje.length < 10){ setErr('Cuéntanos un poco más: escribe al menos 10 caracteres.', area); return; }
+      if (!document.getElementById('qs-ok').checked){ setErr('Para enviar el mensaje, acepta la Política de Privacidad.', document.getElementById('qs-ok')); return; }
+      try {
+        var last = parseInt(localStorage.getItem(KEY), 10) || 0;
+        if (Date.now() - last < 60000){ setErr('Acabas de enviar un mensaje. Espera un minuto antes de enviar otro.'); return; }
+      } catch (x) {}
+
+      send.disabled = true; msg.textContent = 'Enviando…';
+      fetch(ENDPOINT, {
+        method: 'POST',
+        headers: {'Content-Type': 'text/plain;charset=utf-8'},   // evita la petición previa (CORS) que Apps Script no admite
+        body: JSON.stringify({tipo: 'queja', categoria: d.tipo, servicio: d.servicio, mensaje: d.mensaje, nombre: d.nombre, contacto: d.contacto, web: d.web})
+      })
+      .then(function(r){ if (!r.ok) throw new Error('http'); return r.json(); })
+      .then(function(r){
+        if (!r || r.ok !== true) throw new Error((r && r.error) || 'respuesta');
+        try { localStorage.setItem(KEY, String(Date.now())); } catch (x) {}
+        form.reset(); count.textContent = '0 / 1000';
+        msg.className = 'form-msg ok';
+        msg.textContent = '¡Gracias! Recibimos tu mensaje' + (d.contacto ? ' y te responderemos pronto.' : '.');
+      })
+      .catch(function(){
+        msg.textContent = '';
+        setErr('No se pudo enviar tu mensaje. Inténtalo de nuevo en unos minutos o escríbenos por WhatsApp.');
+      })
+      .then(function(){ send.disabled = false; });
+    });
+  })();
+</script>
+</body>
+</html>

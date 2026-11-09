@@ -1,0 +1,104 @@
+/* Páginas legales de AM Luxury Beauty Studio */
+:root{
+  --porcelain:#FFFBF9; --rose-tone:#F5CDD6; --sage-tone:#C9E4D6; --lilac-tone:#D8CCEF; --peach:#FFF0E6;
+  --ink:#4A3A48; --ink-soft:#6B5A66; --gold:#C9A36A; --gold-deep:#86602A; --gold-light:#EBCB92;
+  --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --body:"Jost","Avenir Next","Helvetica Neue",Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;color:var(--ink);font-family:math;font-size:1.0625rem;line-height:1.7;
+  background:linear-gradient(180deg,#F6E8EC 0%,#FFF6F1 60%,#FFFBF9 100%);background-attachment:fixed;min-height:100vh;
+  display:flex;flex-direction:column;
+}
+img{display:block;max-width:100%}
+[hidden]{display:none !important}
+a{color:var(--gold-deep);text-underline-offset:3px}
+a:hover{color:var(--ink)}
+:focus-visible{outline:3px solid var(--gold-deep);outline-offset:3px;border-radius:4px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:#fff;padding:.7rem 1rem;z-index:100}
+.skip:focus{left:1rem;top:1rem}
+.lg-wrap{width:min(860px,100% - clamp(1.4rem,5vw,3rem));margin-inline:auto}
+
+/* Encabezado */
+.lg-header{background:rgba(255,251,249,.96);border-bottom:1px solid rgba(201,163,106,.55);position:sticky;top:0;z-index:20}
+.lg-bar{margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:68px;width:min(1100px,100% - clamp(1.4rem,5vw,3rem))}
+.lg-brand{display:flex;align-items:center;gap:.7rem;color:var(--ink);text-decoration:none}
+.lg-brand img{width:44px;height:44px;object-fit:contain}
+.lg-brand span{font-size:1.05rem}
+.lg-back{
+  display:inline-flex;align-items:center;gap:.5rem;min-height:44px;padding:.3rem 1.1rem;border:1.5px solid rgba(201,163,106,.85);border-radius:999px;
+  background:#fff;color:var(--ink);font:500 .95rem/1 var(--body);text-decoration:none;transition:border-color .2s,transform .15s;
+}
+.lg-back:hover{border-color:var(--gold-deep);color:var(--ink)}
+.lg-back:active{transform:scale(.97)}
+.lg-back svg{width:16px;height:16px;fill:none;stroke:var(--gold-deep);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:520px){.lg-brand span{display:none}}
+
+/* Contenido */
+main{flex:1;padding:clamp(1.6rem,4vw,3rem) 0 clamp(2rem,5vw,4rem)}
+.lg-card{
+  padding:clamp(1.4rem,4vw,3rem);border:1px solid rgba(201,163,106,.95);border-radius:30px;
+  background:rgba(255,255,255,.7);box-shadow:0 26px 46px -36px rgba(74,58,72,.6);
+}
+.lg-eyebrow{margin:0 0 .4rem;font:600 .8rem/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);text-align:center}
+h1{margin:0;font:400 clamp(2rem,5vw,3rem)/1.1 var(--display);text-align:center}
+.lg-date{margin:.8rem 0 0;text-align:center;color:var(--ink-soft);font-size:.95rem}
+.lg-divider{display:flex;align-items:center;gap:.7rem;max-width:24rem;margin:1.4rem auto clamp(1.4rem,3vw,2.2rem)}
+.lg-divider i{flex:1;height:1px;background:linear-gradient(90deg,rgba(201,163,106,0),var(--gold))}
+.lg-divider i:last-child{background:linear-gradient(90deg,var(--gold),rgba(201,163,106,0))}
+.lg-divider b{flex:none;width:9px;height:9px;background:var(--gold);transform:rotate(45deg);box-shadow:0 0 0 3px rgba(201,163,106,.28)}
+.lg-intro{margin:0 0 1.6rem;text-align:center;font-style:italic;color:var(--gold-deep);font-size:1.15rem}
+h2{margin:2rem 0 .6rem;font:400 1.4rem/1.25 var(--display);display:flex;align-items:baseline;gap:.6rem}
+h2::before{content:"";flex:none;width:8px;height:8px;background:var(--gold);transform:rotate(45deg) translateY(-2px)}
+p{margin:0 0 .9rem}
+ul{margin:0 0 1rem;padding:0;list-style:none}
+li{position:relative;padding-left:1.4rem;margin:.35rem 0}
+li::before{content:"";position:absolute;left:.1rem;top:.65em;width:6px;height:6px;background:var(--gold);transform:rotate(45deg)}
+.lg-note{margin-top:2rem;padding:1rem 1.2rem;border:1px dashed rgba(201,163,106,.9);border-radius:18px;background:rgba(255,246,236,.7);font-size:.98rem}
+
+/* Botones y formulario */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:48px;padding:.6rem 1.5rem;border:1.5px solid #E6C788;border-radius:999px;cursor:pointer;
+  background:linear-gradient(135deg,#F6E2B3 0%,#C9A36A 55%,#E6C788 100%);color:#2A1A2E;font:600 1rem/1 var(--body);text-decoration:none;
+  transition:filter .2s,transform .15s;
+}
+.btn:hover{filter:brightness(1.07);color:#2A1A2E}
+.btn:active{transform:scale(.97)}
+.btn[disabled]{opacity:.6;cursor:not-allowed;filter:none}
+form{display:grid;gap:1.2rem;margin-top:.5rem}
+fieldset{margin:0;padding:0;border:0;min-width:0}
+legend,label.lb{display:block;margin:0 0 .45rem;padding:0;font:600 .95rem/1.3 var(--body);color:var(--ink)}
+.opt{font-weight:400;color:var(--ink-soft)}
+input[type=text],select,textarea{
+  width:100%;padding:.8rem 1rem;border:1.5px solid rgba(201,163,106,.8);border-radius:16px;background:#fff;color:var(--ink);
+  font:400 1rem/1.4 var(--body);
+}
+textarea{min-height:150px;resize:vertical}
+input[type=text]:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--gold-deep);outline-offset:2px;border-radius:16px}
+.hint{margin:.35rem 0 0;font-size:.88rem;color:var(--ink-soft);font-family:var(--body)}
+.kinds{display:flex;flex-wrap:wrap;gap:.6rem}
+.kinds label{position:relative;cursor:pointer}
+.kinds input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.kinds span{
+  display:inline-flex;align-items:center;min-height:44px;padding:.4rem 1.2rem;border:1.5px solid rgba(201,163,106,.8);border-radius:999px;background:#fff;
+  font:500 .95rem/1 var(--body);transition:background-color .2s,border-color .2s;
+}
+.kinds input:checked+span{background:linear-gradient(135deg,var(--gold-light),var(--gold));border-color:var(--gold)}
+.kinds input:focus-visible+span{outline:3px solid var(--gold-deep);outline-offset:3px}
+.check{display:flex;gap:.7rem;align-items:flex-start;font:400 .95rem/1.5 var(--body)}
+.check input{flex:none;width:20px;height:20px;margin-top:.15rem;accent-color:var(--gold-deep)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-msg{margin:0;min-height:1.5em;font:500 1rem/1.5 var(--body)}
+.form-msg.ok{color:#2F6B4F}
+.form-msg.err{color:#9A2F3F}
+.count{text-align:right;font:400 .85rem var(--body);color:var(--ink-soft)}
+
+/* Pie */
+.lg-footer{padding:1.6rem 0 2rem;text-align:center;background:var(--porcelain);border-top:1px solid rgba(201,163,106,.55);font-size:.95rem}
+.lg-footer nav{display:flex;flex-wrap:wrap;justify-content:center;gap:.3rem 1.6rem;margin-bottom:.8rem}
+.lg-footer a[aria-current="page"]{color:var(--ink);font-weight:600;text-decoration:none}
+.lg-footer p{margin:0;color:var(--ink-soft)}
+@media (prefers-reduced-motion:reduce){*{transition:none !important;scroll-behavior:auto}}
