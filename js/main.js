@@ -476,6 +476,14 @@ var AM = (function(){
     }
     window.addEventListener('scroll', update, {passive:true});
     update();
+    // Cada 10 s (solo si la barra está visible y la pestaña activa) brilla "Reservar cita" y el teléfono "suena"
+    if (!AM.reduce){
+      setInterval(function(){
+        if (document.hidden || !bar.classList.contains('visible')) return;
+        bar.classList.add('attn');
+        setTimeout(function(){ bar.classList.remove('attn'); }, 1800);
+      }, 10000);
+    }
   })();
 
   // Menú móvil
@@ -553,7 +561,6 @@ var AM = (function(){
       Array.prototype.forEach.call(bars, function(li){
         var n = parseInt(li.getAttribute('data-star'), 10);
         var c = v[n - 1];
-        li.querySelector('.fill').style.setProperty('--w', (total ? c / total * 100 : 0) + '%');
         li.querySelector('.cnt').textContent = c;
       });
     }
@@ -803,17 +810,17 @@ var AM = (function(){
       {servicio:"pedicura-spa", foto:"img/galeria/spap4.jpg", pos:"60% 20%", zoom:1.4,
        titulo:"Masaje de pies", titulo_en:"Foot massage",
        texto:" Masaje relajante para hidratación de la piel y cutícula .", texto_en:"Relaxing massage for skin and cuticle hydration."},
-      {servicio:"pestanas", foto:"img/galeria/pes1.png", pos:"50% 50%", zoom:1,
-       titulo:"Pestañas 3D", titulo_en:"3D lashes",
+      {servicio:"pestanas", foto:"img/galeria/pes1.jpg", pos:"50% 50%", zoom:1,
+       titulo:"Pestañas 4D", titulo_en:"4D lashes",
        texto:"Volumen suave y ligero para una mirada definida.", texto_en:"Soft, light volume for a defined look."},
       {servicio:"pestanas", foto:"img/galeria/pes2.jpg", pos:"85% 70%", zoom:1.5,
-       titulo:"Pestañas 2D YY", titulo_en:"2D YY lashes",
+       titulo:"Pestañas 3D", titulo_en:"3D lashes",
        texto:"Efecto natural y ligero para el día a día.", texto_en:"A natural, lightweight effect for every day."},
       {servicio:"pestanas", foto:"img/galeria/pes3.jpg", pos:"15% 80%", zoom:1.6,
-       titulo:"Pestañas 4D", titulo_en:"4D lashes",
+       titulo:"Pestañas 3D", titulo_en:"3D lashes",
        texto:"Mayor densidad para una mirada intensa.", texto_en:"More density for an intense look."},
       {servicio:"pestanas", foto:"img/galeria/pes4.jpg", pos:"60% 20%", zoom:1.4,
-       titulo:"Pestañas 5D", titulo_en:"5D lashes",
+       titulo:"Pestañas 2D YY", titulo_en:"2D YY lashes",
        texto:"Volumen completo con un acabado ligero.", texto_en:"Full volume with a lightweight finish."},
       {servicio:"cejas", foto:"img/galeria/c1.png", pos:"50% 50%", zoom:1,
        titulo:"Henna + Depilación + Diseño", titulo_en:"Henna + Hair removal + Design",
@@ -821,12 +828,18 @@ var AM = (function(){
       {servicio:"cejas", foto:"img/galeria/c2.jpg", pos:"85% 70%", zoom:1.5,
        titulo:"Laminado + Tinte Premium", titulo_en:"Brow lifting + Tint",
        texto:"Laminado y tinte con parches hidratantes.", texto_en:"Brow lifting and tint with hydrating patches."},
-      {servicio:"cejas", foto:"img/galeria/c3.jpg", pos:"15% 80%", zoom:1.6,
-       titulo:"Laminado", titulo_en:"Brow lifting",
+      {servicio:"cejas", foto:"img/galeria/c5.jpg", pos:"15% 80%", zoom:1.6,
+       titulo:"Laminado + tinte", titulo_en:"Brow lifting + Tint",
        texto:"Color y forma para unas cejas más definidas.", texto_en:"Colour and shape for more defined brows."},
       {servicio:"cejas", foto:"img/galeria/c4.jpg", pos:"60% 20%", zoom:1.4,
        titulo:"Henna + Depilación + Diseño", titulo_en:"Henna + Hair removal + Design",
-       texto:"Cejas definidas con una forma a tu medida.", texto_en:"Defined brows with a shape made for you."}
+       texto:"Cejas definidas con una forma a tu medida.", texto_en:"Defined brows with a shape made for you."},
+      {servicio:"cejas", foto:"img/galeria/c3.jpg", pos:"60% 20%", zoom:1.4,
+       titulo:"Henna + Depilación + Diseño", titulo_en:"Henna + Hair removal + Design",
+       texto:"Cejas definidas con una forma a tu medida.", texto_en:"Defined brows with a shape made for you."},
+      {servicio:"cejas", foto:"img/galeria/pes1.jpg", pos:"60% 20%", zoom:1.4,
+       titulo:"Laminado", titulo_en:"Brow lifting",
+       texto:"Cejas peinadas y definidas con una forma adaptada a ti.", texto_en:"Combed and defined eyebrows with a shape adapted to you."}
     ];
 
     var grid = document.getElementById('g-grid');
@@ -1907,7 +1920,7 @@ var AM = (function(){
       copy:'<rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>',
       ig:'<rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>',
       sms:'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
-      send:'<line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>',
+      send:'<rect x="3" y="4.5" width="18" height="16.5" rx="3"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/><path d="m8.8 15.2 2.2 2.2 4.4-4.6"/>',
       user:'<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
       users:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
       phone:'<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>',
@@ -2864,7 +2877,8 @@ var AM = (function(){
       full:[
         '**Paquete Luxury Full Service** .. $50 USD\n\nUna experiencia completa para consentir tus manos y pies. Incluye:\n- Manicura Estándar\n- Manicura SPA\n- Pedicura Estándar\n- Pedicura SPA\n\nNo incluye pestañas ni cejas. Café y bebida de cortesía incluidos.',
         '**Luxury Full Service Package** .. $50 USD\n\nA complete experience to pamper your hands and feet. Includes:\n- Standard Manicure\n- Manicure SPA\n- Standard Pedicure\n- Pedicure SPA\n\nDoes not include lashes or brows. Complimentary coffee and drink included.'],
-      dur:['No tengo publicada la duración del **Paquete Luxury Full Service** (incluye 4 servicios). Para planificar tu día, consúltalo por WhatsApp.','I don\'t have a published duration for the **Luxury Full Service Package** (it includes 4 services). To plan your day, please ask us on WhatsApp.']
+      dur:['El **Paquete Luxury Full Service** dura aproximadamente **6 horas** (unos 365 min). No tiene una duración publicada, pero se estima sumando sus 4 servicios: Manicura Estándar 2 h 15 min + Manicura SPA 1 h + Pedicura 1 h 30 min + Pedicura SPA 1 h 20 min. Si empiezas a las 8:00 AM, terminarías hacia las 2:00 PM. Es una estimación: el tiempo exacto puede variar, confírmalo al reservar.',
+      'The **Luxury Full Service Package** takes approximately **6 hours** (about 365 min). There is no published duration, but it can be estimated by adding its 4 services: Standard Manicure 2 h 15 min + SPA Manicure 1 h + Pedicure 1 h 30 min + SPA Pedicure 1 h 20 min. If you start at 8:00 AM, you would finish around 2:00 PM. This is an estimate: the exact time may vary, so please confirm it when booking.']
     }
   };
   var SVC_IDS = ['manicura','manicura-spa','pedicura','pedicura-spa','pestanas','cejas','paquete'];
@@ -2986,9 +3000,92 @@ var AM = (function(){
       return {t:SV[s].dur[ix(L)], acts:[bookAct(s)], chips:['precios','extras','servicios']};
     }
     return {t:T(L,
-      '**Duración aproximada**\n\nManicura .. 2 h 15 min\nManicura SPA .. 1 h\nPedicura .. 1 h 30 min\nPedicura SPA .. 1 h 20 min\nPestañas, set nuevo .. 2 h 30 min\nPestañas, retoque .. 1 h 30 min\nCejas .. 1 h',
-      '**Approximate duration**\n\nManicure .. 2 h 15 min\nManicure SPA .. 1 h\nPedicure .. 1 h 30 min\nPedicure SPA .. 1 h 20 min\nLashes, new set .. 2 h 30 min\nLashes, touch-up .. 1 h 30 min\nBrows .. 1 h'),
+      '**Duración aproximada**\n\nManicura .. 2 h 15 min\nManicura SPA .. 1 h\nPedicura .. 1 h 30 min\nPedicura SPA .. 1 h 20 min\nPestañas, set nuevo .. 2 h 30 min\nPestañas, retoque .. 1 h 30 min\nCejas .. 1 h\nPaquete Luxury Full Service .. aprox. 6 h (suma de sus 4 servicios)',
+      '**Approximate duration**\n\nManicure .. 2 h 15 min\nManicure SPA .. 1 h\nPedicure .. 1 h 30 min\nPedicure SPA .. 1 h 20 min\nLashes, new set .. 2 h 30 min\nLashes, touch-up .. 1 h 30 min\nBrows .. 1 h\nLuxury Full Service Package .. approx. 6 h (sum of its 4 services)'),
       acts:[WA_BOOK], chips:['precios','servicios','reservar']};
+  };
+  /* ---------- Deducciones: respuestas calculadas con los datos del catálogo ----------
+     Margarita no solo repite textos: si la pregunta combina servicios (o pide un total, un ahorro,
+     si cabe en un día…) calcula la respuesta a partir de la duración y el precio de cada servicio. */
+  var FACT = {   // dur en minutos · p = [precio mínimo, máximo] en USD (mismos datos que el formulario de reservas)
+    'manicura':     {dur:135, p:[15,18], n:['Manicura (Estándar, Dual System o Softgel)','Manicure (Standard, Dual System or Softgel)']},
+    'manicura-spa': {dur:60,  p:[14,14], n:['Manicura SPA','SPA Manicure']},
+    'pedicura':     {dur:90,  p:[15,15], n:['Pedicura','Pedicure']},
+    'pedicura-spa': {dur:80,  p:[18,18], n:['Pedicura SPA','SPA Pedicure']},
+    'pestanas':     {dur:150, p:[13,20], n:['Pestañas (set nuevo)','Lashes (new set)']},
+    'cejas':        {dur:60,  p:[3,16],  n:['Cejas','Brows']},
+    'paquete':      {dur:365, p:[50,50], n:['Paquete Luxury Full Service','Luxury Full Service Package']}
+  };
+  var PKG_PARTS = ['manicura','manicura-spa','pedicura','pedicura-spa'];   // lo que incluye el paquete
+  var PKG_SEPARATE = 15 + 14 + 15 + 18;                                     // precio de esos 4 por separado (manicura estándar)
+  var OPEN_MIN = 8 * 60, CLOSE_MIN = 18 * 60;                               // horario: 8:00 AM – 6:00 PM
+  function hm(m){ var h = Math.floor(m / 60), r = m % 60; return (h ? h + ' h' : '') + (h && r ? ' ' : '') + (r ? r + ' min' : ''); }
+  function clock(m, L){
+    m = Math.round(m / 15) * 15;
+    var h = Math.floor(m / 60) % 24, r = m % 60, ap = h >= 12 ? 'PM' : 'AM';
+    return (h % 12 || 12) + ':' + (r < 10 ? '0' : '') + r + ' ' + ap;
+  }
+  function usdRange(a, b){ return a === b ? '$' + a : '$' + a + '–' + b; }
+  function mentioned(n){
+    var out = [], t = n;
+    var ms = /manicur\w*\s+spa|spa\s+(?:de\s+)?manicur\w*|manicure\s+spa|spa\s+manicure/;
+    var ps = /pedicur\w*\s+spa|spa\s+(?:de\s+)?pedicur\w*|pedicure\s+spa|spa\s+pedicure/;
+    if (ms.test(t)){ out.push('manicura-spa'); t = t.replace(ms, ' '); }
+    if (ps.test(t)){ out.push('pedicura-spa'); t = t.replace(ps, ' '); }
+    var feet = /\bmanos y pies\b|\bpies y manos\b|\bhands and feet\b|\bfeet and hands\b/.test(t);
+    if (feet || /\b(?:manicur\w*|manicure|mani)\b/.test(t)) out.push('manicura');
+    if (feet || /\b(?:pedicur\w*|pedicure|pedi)\b/.test(t)) out.push('pedicura');
+    if (/pestan|lash/.test(t)) out.push('pestanas');
+    if (/\bcejas?\b|\bbrows?\b/.test(t)) out.push('cejas');
+    if (/\bpaquete\b|\bpackage\b|full service/.test(t)) out.push('paquete');
+    return out;
+  }
+  var RE_COMBO = /\b(?:mismo dia|juntas?|juntos|total|ambos|ambas|a la vez|al mismo tiempo|en un dia|cabe|cabria|alcanza|same day|together|both|at once|combin\w*|sumar?|ahorr\w*|conviene|separad[oa]s?|vale la pena|worth|cheaper|save|saving|separately|diferencia)\b/;
+  function deduceKey(n){
+    var ms = mentioned(n);
+    if (ms.length >= 2 && (scoreAll(n, ['duracion','precios']).score >= 3 || RE_COMBO.test(n))) return 'combo';
+    if (ms.length === 1 && ms[0] === 'paquete' && /ahorr|conviene|separad|vale la pena|worth|cheaper|save|saving|separately|diferencia|compar/.test(n)) return 'combo';
+    return null;
+  }
+  R.combo = function(L, n){
+    var ids = mentioned(n), has = function(id){ return ids.indexOf(id) > -1; };
+    ctx.svc = null;
+    var hasAll4 = PKG_PARTS.every(has);
+    var pkgOnly = ids.length === 1 && ids[0] === 'paquete';
+    if (pkgOnly || (hasAll4 && !has('paquete'))){
+      var save = PKG_SEPARATE - FACT.paquete.p[0];
+      return {t:T(L,
+        '**Paquete Luxury Full Service o por separado**\n\nPor separado (Manicura Estándar + Manicura SPA + Pedicura + Pedicura SPA): **$' + PKG_SEPARATE + ' USD**.\nPaquete Luxury Full Service: **$' + FACT.paquete.p[0] + ' USD**.\n\nCon el paquete ahorras aproximadamente **$' + save + ' USD** (calculado con la manicura estándar) y además incluye café y una bebida de cortesía. Duración estimada: ' + hm(FACT.paquete.dur) + '.',
+        '**Luxury Full Service Package or separately**\n\nSeparately (Standard Manicure + SPA Manicure + Pedicure + SPA Pedicure): **$' + PKG_SEPARATE + ' USD**.\nLuxury Full Service Package: **$' + FACT.paquete.p[0] + ' USD**.\n\nWith the package you save about **$' + save + ' USD** (calculated with the standard manicure), and it also includes coffee and a complimentary drink. Estimated duration: ' + hm(FACT.paquete.dur) + '.'),
+        acts:[bookAct('paquete'), go('#paquete','Ver el paquete','See the package')], chips:['duracion','precios','reservar','servicios']};
+    }
+    var min = 0, lo = 0, hi = 0, rows = [];
+    ids.forEach(function(id){
+      var f = FACT[id]; min += f.dur; lo += f.p[0]; hi += f.p[1];
+      rows.push(f.n[ix(L)] + ' .. ' + hm(f.dur) + ' · ' + usdRange(f.p[0], f.p[1]) + ' USD');
+    });
+    var tail = '';
+    var avail = CLOSE_MIN - OPEN_MIN;
+    if (min > avail){
+      tail = T(L,
+        '\n\nNo cabe en un solo día (atendemos de 8:00 AM a 6:00 PM, unas ' + hm(avail) + '): conviene repartirlo en dos citas.',
+        '\n\nIt does not fit in a single day (we are open 8:00 AM to 6:00 PM, about ' + hm(avail) + '): it is better to split it into two appointments.');
+    } else {
+      tail = T(L,
+        '\n\nSi empiezas a las 8:00 AM, terminarías hacia las ' + clock(OPEN_MIN + min, L) + '.',
+        '\n\nIf you start at 8:00 AM, you would finish around ' + clock(OPEN_MIN + min, L) + '.');
+    }
+    if (hasAll4 && has('paquete')) tail = '';
+    var hint = (has('manicura') && has('pedicura') && !has('paquete') && !hasAll4) ? T(L,
+        '\n\nSi quieres manos y pies completos, mira también el **Paquete Luxury Full Service**.',
+        '\n\nIf you want complete hands and feet, also take a look at the **Luxury Full Service Package**.') : '';
+    var note = has('paquete') && ids.length > 1 ? T(L,
+        '\n\nEl paquete ya incluye manos y pies; no incluye pestañas ni cejas.',
+        '\n\nThe package already covers hands and feet; it does not include lashes or brows.') : '';
+    return {t:T(L,
+        '**Servicios elegidos**\n\n' + rows.join('\n') + '\n\n**Total** .. ' + hm(min) + ' · ' + usdRange(lo, hi) + ' USD' + tail + hint + note + '\n\nEs una estimación sumando cada servicio uno tras otro; el tiempo y el precio finales pueden variar según el diseño y los extras.',
+        '**Selected services**\n\n' + rows.join('\n') + '\n\n**Total** .. ' + hm(min) + ' · ' + usdRange(lo, hi) + ' USD' + tail + hint + note + '\n\nThis is an estimate adding each service one after the other; final time and price may vary with the design and extras.'),
+      acts:[WA_BOOK, go('#reservar-cita','Reservar en línea','Book online')], chips:['precios','duracion','paquete','reservar']};
   };
   R.incluye = function(L, n){
     var s = svcFor(n);
@@ -3647,7 +3744,14 @@ var AM = (function(){
     var key = id, score = 99;
     if (key == null){
       var best = scoreAll(n);
+      // "¿Cuánto dura el paquete?": si pregunta por duración o precio de un servicio, gana la pregunta, no el nombre del servicio
+      if (SVC_IDS.indexOf(best.id) > -1){
+        var attr = scoreAll(n, ['duracion','precios']);
+        if (attr.score >= 3) best = attr;
+      }
       key = best.id; score = best.score;
+      var dk = deduceKey(n);        // combinaciones, totales, ahorro, si cabe en un día…
+      if (dk){ key = dk; score = 99; }
     }
     if (key && score >= 2 && R[key]){
       var r = R[key](curLang, id == null ? n : '', raw);
